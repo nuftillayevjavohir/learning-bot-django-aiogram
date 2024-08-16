@@ -11,7 +11,7 @@ from django.views import View
 from django.http import HttpRequest, HttpResponse
 from django.contrib.auth import get_user_model
 
-from apps.bot.bot_conf import dp
+from core.asgi import dp
 
 from apps.bot.models import TelegramBotConfiguration
 
@@ -26,3 +26,4 @@ class WebhookView(View):
         upd = types.Update(**(json.loads(request.body)))
         await dp.feed_update(bot=bot, update=upd)
         return HttpResponse('Hello, webhook is working!')
+

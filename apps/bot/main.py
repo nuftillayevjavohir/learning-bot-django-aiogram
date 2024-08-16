@@ -7,7 +7,8 @@ from asgiref.sync import sync_to_async
 
 from django.contrib.auth import get_user_model
 
-from apps.bot.bot_conf import dp
+
+from core.asgi import dp
 from apps.bot.models import TelegramBotConfiguration
 
 User = get_user_model()
