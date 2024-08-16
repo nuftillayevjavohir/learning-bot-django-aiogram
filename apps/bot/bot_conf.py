@@ -23,5 +23,6 @@ redis = Redis.from_url(env.str('REDIS_URL', 'redis://localhost:6379/0'))
 dp = Dispatcher(storage=RedisStorage(redis=redis))
 
 dp.include_routers(
-    ...
+    handlers.start_command.router,
+    handlers.echo.router
 )
